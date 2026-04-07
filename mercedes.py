@@ -217,7 +217,7 @@ def deal_pill_class(pct: float) -> str:
 # ── Load data ─────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data() -> pd.DataFrame:
-    df = pd.read_csv("Data\mercedes_benz_listings_cleaned.csv")
+    df = pd.read_csv("mercedes_benz_listings_cleaned.csv")
     df["predicted"] = df.apply(
         lambda r: predict(r["Vehicle_Age"], r["Mileage_Miles"], bool(r["Is_4MATIC"]), r["Model_Series"]), axis=1
     )
