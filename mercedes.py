@@ -241,6 +241,17 @@ PLOTLY_LAYOUT = dict(
     font=dict(family="DM Sans", color="#0a0a0a"),
     margin=dict(l=16, r=16, t=30, b=16),
 )
+AXIS_STYLE = dict(
+    showgrid=True,
+    gridcolor=CREAM,
+    tickfont=dict(color=INK, size=11),   # 👈 axis numbers
+    titlefont=dict(color=INK, size=12),  # 👈 axis titles
+    zerolinecolor=SILVER
+)
+LEGEND_STYLE = dict(
+    font=dict(color=INK, size=11),       # 👈 legend text color
+    bgcolor="rgba(0,0,0,0)",             # transparent
+)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -381,9 +392,9 @@ with chart_l:
     scatter.update_traces(marker=dict(size=7, opacity=0.78))
     scatter.update_layout(
         **PLOTLY_LAYOUT,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.25, xanchor="left", x=0),
-        xaxis=dict(tickformat=",.0f", gridcolor=CREAM),
-        yaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.25, xanchor="left", x=0,**LEGEND_STYLE),
+        xaxis=dict(tickformat=",.0f", gridcolor=CREAM,**AXIS_STYLE),
+        yaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM,**AXIS_STYLE),
         title_font=dict(family="Playfair Display", size=14, color=INK),
     )
     st.plotly_chart(scatter, use_container_width=True)
@@ -400,11 +411,15 @@ with chart_r:
     donut.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Listings by Body Type", font=dict(family="Playfair Display", size=14, color=INK)),
-        legend=dict(font=dict(family="DM Sans", size=11)),
+        legend=dict(**LEGEND_STYLE),
         annotations=[dict(text=f"<b>{len(df)}</b><br>listings", x=0.5, y=0.5,
                           font=dict(size=13, family="Playfair Display", color=INK),
                           showarrow=False)],
     )
+    donut.update_traces(
+        textfont=dict(color=INK, size=11)
+    )
+    
     st.plotly_chart(donut, use_container_width=True)
 
 st.markdown("<hr class='gold-divider'>", unsafe_allow_html=True)
@@ -433,10 +448,10 @@ with dep_l:
     fig_dep.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Average Price by Vehicle Age", font=dict(family="Playfair Display", size=14, color=INK)),
-        xaxis=dict(title="Vehicle Age (years)", gridcolor=CREAM),
-        yaxis=dict(title="Avg Price (USD)", tickprefix="$", tickformat=",.0f", gridcolor=CREAM),
+        xaxis=dict(title="Vehicle Age (years)", **AXIS_STYLE),
+        yaxis=dict(title="Avg Price (USD)", tickprefix="$", tickformat=",.0f", **AXIS_STYLE),
         legend=dict(orientation="h", yanchor="bottom", y=-0.28, xanchor="left", x=0,
-                    font=dict(family="DM Sans", size=11)),
+                    **LEGEND_STYLE),
     )
     st.plotly_chart(fig_dep, use_container_width=True)
 
@@ -463,7 +478,7 @@ with dep_r:
     bar_h.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Avg Price by Model Series", font=dict(family="Playfair Display", size=14, color=INK)),
-        xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False),
+        xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False, **AXIS_STYLE),
         yaxis=dict(tickfont=dict(family="DM Sans", size=10)),
         height=420,
     )
@@ -511,8 +526,9 @@ box = px.box(
 )
 box.update_layout(**PLOTLY_LAYOUT,
                   title_font=dict(family="Playfair Display", size=14, color=INK),
-                  yaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM),
-                  showlegend=False)
+                  yaxis=dict(tickprefix="$", tickformat=",.0f", **AXIS_STYLE),
+                  showlegend=False),
+            
 st.plotly_chart(box, use_container_width=True)
 
 st.markdown("<hr class='gold-divider'>", unsafe_allow_html=True)
@@ -609,8 +625,8 @@ hist = px.histogram(
 hist.add_vline(x=0, line_dash="dash", line_color=INK, annotation_text="Fair Value", annotation_position="top right")
 hist.update_layout(**PLOTLY_LAYOUT,
                    title_font=dict(family="Playfair Display", size=14, color=INK),
-                   xaxis=dict(gridcolor=CREAM),
-                   yaxis=dict(title="Count", gridcolor=CREAM))
+                   xaxis=dict(**AXIS_STYLE),
+                   yaxis=dict(title="Count",**AXIS_STYLE))
 st.plotly_chart(hist, use_container_width=True)
 
 # ── Footer ────────────────────────────────────────────────────────────────────
