@@ -393,8 +393,8 @@ with chart_l:
     scatter.update_layout(
         **PLOTLY_LAYOUT,
         legend=dict(orientation="h", yanchor="bottom", y=-0.25, xanchor="left", x=0,**LEGEND_STYLE),
-        xaxis=dict(tickformat=",.0f", gridcolor=CREAM,**AXIS_STYLE),
-        yaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM,**AXIS_STYLE),
+        xaxis=dict(tickformat=",.0f",**AXIS_STYLE),
+        yaxis=dict(tickprefix="$", tickformat=",.0f",**AXIS_STYLE),
         title_font=dict(family="Playfair Display", size=14, color=INK),
     )
     st.plotly_chart(scatter, use_container_width=True)
