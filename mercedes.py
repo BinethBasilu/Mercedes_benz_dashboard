@@ -243,11 +243,11 @@ PLOTLY_LAYOUT = dict(
 )
 AXIS_STYLE = dict(
     showgrid=True,
-    gridcolor=CREAM,
-    tickfont=dict(color=INK, size=11),   # 👈 axis numbers
-    titlefont=dict(color=INK, size=12),  # 👈 axis titles
+    tickfont=dict(color=INK, size=11),
+    titlefont=dict(color=INK, size=12),
     zerolinecolor=SILVER
 )
+
 LEGEND_STYLE = dict(
     font=dict(color=INK, size=11),       # 👈 legend text color
     bgcolor="rgba(0,0,0,0)",             # transparent
@@ -393,8 +393,8 @@ with chart_l:
     scatter.update_layout(
         **PLOTLY_LAYOUT,
         legend=dict(orientation="h", yanchor="bottom", y=-0.25, xanchor="left", x=0,**LEGEND_STYLE),
-        xaxis=dict(tickformat=",.0f",**AXIS_STYLE),
-        yaxis=dict(tickprefix="$", tickformat=",.0f",**AXIS_STYLE),
+        xaxis=dict(tickformat=",.0f",gridcolor=CREAM,**AXIS_STYLE),
+        yaxis=dict(tickprefix="$", tickformat=",.0f",gridcolor=CREAM,**AXIS_STYLE),
         title_font=dict(family="Playfair Display", size=14, color=INK),
     )
     st.plotly_chart(scatter, use_container_width=True)
