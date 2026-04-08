@@ -244,13 +244,13 @@ PLOTLY_LAYOUT = dict(
 AXIS_STYLE = dict(
     showgrid=True,
     tickfont=dict(color=INK, size=11),
-    titlefont=dict(color=INK, size=12),
+    title=dict(font=dict(color=INK, size=12)),
     zerolinecolor=SILVER
 )
 
 LEGEND_STYLE = dict(
-    font=dict(color=INK, size=11),       # 👈 legend text color
-    bgcolor="rgba(0,0,0,0)",             # transparent
+    font=dict(color=INK, size=11),
+    bgcolor="rgba(0,0,0,0)"
 )
 
 
