@@ -238,7 +238,7 @@ CREAM      = "#ede7d5"
 PLOTLY_LAYOUT = dict(
     paper_bgcolor="white",
     plot_bgcolor="white",
-    font=dict(family="DM Sans", color="#4a4a4a"),
+    font=dict(family="DM Sans", color="#0a0a0a"),
     margin=dict(l=16, r=16, t=30, b=16),
 )
 
@@ -419,7 +419,7 @@ dep_l, dep_r = st.columns([1.8, 1], gap="large")
 
 with dep_l:
     focus_models = ["GLE", "GLC", "C-Class", "E-Class", "S-Class", "GLS"]
-    palette      = [GOLD, INK, "#4a4a4a", SILVER, GOLD_LIGHT, "#888888"]
+    palette      = [GOLD, INK, "#4a4a4a", SILVER, GOLD_LIGHT, "#070606"]
 
     fig_dep = go.Figure()
     for model_name, color in zip(focus_models, palette):
