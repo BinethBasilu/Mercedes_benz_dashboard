@@ -626,7 +626,7 @@ hist.add_vline(x=0, line_dash="dash", line_color=INK, annotation_text="Fair Valu
 hist.update_layout(**PLOTLY_LAYOUT,
                    title_font=dict(family="Playfair Display", size=14, color=INK),
                    xaxis=dict(**AXIS_STYLE),
-                   yaxis=dict(title="Count",**AXIS_STYLE))
+                   yaxis=dict(title=dict(text="Count", font=dict(color=INK, size=12)), showgrid=True, tickfont=dict(color=INK, size=11), zerolinecolor=SILVER))
 st.plotly_chart(hist, use_container_width=True, key="hist_chart")
 
 # ── Footer ────────────────────────────────────────────────────────────────────
