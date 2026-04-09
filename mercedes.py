@@ -397,7 +397,7 @@ with chart_l:
         yaxis=dict(tickprefix="$", tickformat=",.0f",gridcolor=CREAM,**AXIS_STYLE),
         title_font=dict(family="Playfair Display", size=14, color=INK),
     )
-    st.plotly_chart(scatter, use_container_width=True)
+    st.plotly_chart(scatter, use_container_width=True, key="scatter_chart")
 
 with chart_r:
     body_counts = df["Body_Type"].value_counts()
@@ -420,7 +420,7 @@ with chart_r:
         textfont=dict(color=INK, size=11)
     )
     
-    st.plotly_chart(donut, use_container_width=True)
+    st.plotly_chart(donut, use_container_width=True, key="donut_chart")
 
 st.markdown("<hr class='gold-divider'>", unsafe_allow_html=True)
 
@@ -453,7 +453,7 @@ with dep_l:
         legend=dict(orientation="h", yanchor="bottom", y=-0.28, xanchor="left", x=0,
                     **LEGEND_STYLE),
     )
-    st.plotly_chart(fig_dep, use_container_width=True)
+    st.plotly_chart(fig_dep, use_container_width=True, key="dep_chart")
 
 with dep_r:
     model_avg = (
@@ -482,7 +482,7 @@ with dep_r:
         yaxis=dict(tickfont=dict(family="DM Sans", size=10)),
         height=420,
     )
-    st.plotly_chart(bar_h, use_container_width=True)
+    st.plotly_chart(bar_h, use_container_width=True, key="bar_h_chart")
 
 st.markdown("<hr class='gold-divider'>", unsafe_allow_html=True)
 
@@ -529,7 +529,7 @@ box.update_layout(**PLOTLY_LAYOUT,
                   yaxis=dict(tickprefix="$", tickformat=",.0f", **AXIS_STYLE),
                   showlegend=False),
             
-st.plotly_chart(box, use_container_width=True)
+st.plotly_chart(box, use_container_width=True, key="box_chart")
 
 st.markdown("<hr class='gold-divider'>", unsafe_allow_html=True)
 
@@ -627,7 +627,7 @@ hist.update_layout(**PLOTLY_LAYOUT,
                    title_font=dict(family="Playfair Display", size=14, color=INK),
                    xaxis=dict(**AXIS_STYLE),
                    yaxis=dict(title="Count",**AXIS_STYLE))
-st.plotly_chart(hist, use_container_width=True)
+st.plotly_chart(hist, use_container_width=True, key="hist_chart")
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("""
