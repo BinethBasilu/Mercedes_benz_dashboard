@@ -448,8 +448,8 @@ with dep_l:
     fig_dep.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Average Price by Vehicle Age", font=dict(family="Playfair Display", size=14, color=INK)),
-        xaxis=dict(title="Vehicle Age (years)", **AXIS_STYLE),
-        yaxis=dict(title="Avg Price (USD)", tickprefix="$", tickformat=",.0f", **AXIS_STYLE),
+        xaxis=dict(title=dict(text="Vehicle Age (years)", font=dict(color=INK, size=12)), showgrid=True, tickfont=dict(color=INK, size=11), zerolinecolor=SILVER),
+        yaxis=dict(title=dict(text="Avg Price (USD)", font=dict(color=INK, size=12)), tickprefix="$", tickformat=",.0f", showgrid=True, tickfont=dict(color=INK, size=11), zerolinecolor=SILVER),
         legend=dict(orientation="h", yanchor="bottom", y=-0.28, xanchor="left", x=0,
                     **LEGEND_STYLE),
     )
