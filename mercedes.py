@@ -173,6 +173,32 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
 /* Hide streamlit branding */
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding-top: 0 !important; }
+
+/* Fix all input labels */
+.stSelectbox label,
+.stNumberInput label,
+.stRadio label,
+.stSlider label {
+    color: #0a0a0a !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+}
+
+/* Fix radio option text */
+.stRadio div[role="radiogroup"] label p {
+    color: #0a0a0a !important;
+}
+
+/* Fix selectbox selected value */
+.stSelectbox div[data-baseweb="select"] span {
+    color: #0a0a0a !important;
+}
+
+/* Fix number input */
+.stNumberInput input {
+    color: #0a0a0a !important;
+    background: #f5f0e8 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -481,7 +507,7 @@ with dep_r:
         xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False, tickfont=dict(color=INK, size=11)),
         yaxis=dict(tickfont=dict(family="DM Sans", size=10, color=INK)),
         height=420,
-        
+
     )
     st.plotly_chart(bar_h, use_container_width=True, key="bar_h_chart")
 
