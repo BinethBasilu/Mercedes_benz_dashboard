@@ -481,7 +481,7 @@ with dep_r:
         xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False, tickfont=dict(color=INK, size=11)),
         yaxis=dict(tickfont=dict(family="DM Sans", size=10, color=INK)),
         height=420,
-        font=dict(color=INK),
+        
     )
     st.plotly_chart(bar_h, use_container_width=True, key="bar_h_chart")
 
