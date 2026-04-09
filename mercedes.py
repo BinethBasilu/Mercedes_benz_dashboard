@@ -434,7 +434,7 @@ dep_l, dep_r = st.columns([1.8, 1], gap="large")
 
 with dep_l:
     focus_models = ["GLE", "GLC", "C-Class", "E-Class", "S-Class", "GLS"]
-    palette      = [GOLD, INK, "#4a4a4a", SILVER, GOLD_LIGHT, "#070606"]
+    palette      = [GOLD, INK, "#080808", SILVER, GOLD_LIGHT, "#070606"]
 
     fig_dep = go.Figure()
     for model_name, color in zip(focus_models, palette):
@@ -478,9 +478,10 @@ with dep_r:
     bar_h.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(text="Avg Price by Model Series", font=dict(family="Playfair Display", size=14, color=INK)),
-        xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False, **AXIS_STYLE),
-        yaxis=dict(tickfont=dict(family="DM Sans", size=10)),
+        xaxis=dict(tickprefix="$", tickformat=",.0f", gridcolor=CREAM, showticklabels=False, tickfont=dict(color=INK, size=11)),
+        yaxis=dict(tickfont=dict(family="DM Sans", size=10, color=INK)),
         height=420,
+        font=dict(color=INK)
     )
     st.plotly_chart(bar_h, use_container_width=True, key="bar_h_chart")
 
